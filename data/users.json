@@ -1,0 +1,26 @@
+[
+    {
+        "id": 4,
+        "username": "urs",
+        "password_hash": "a38794ca63aaead5358bdec68ba550098879c8472d3a6b3cbfce0b5ec98fc08d",
+        "display_name": "Urs Schneiter",
+        "role": "admin",
+        "active": true
+    },
+    {
+        "id": 5,
+        "username": "martin",
+        "password_hash": "d27d2c6b91c9f134ab4d9d399282a83e543939ac333140eb5488aca351879e04",
+        "display_name": "Martin Loosli",
+        "role": "admin",
+        "active": true
+    },
+    {
+        "id": 6,
+        "username": "tim",
+        "password_hash": "a38794ca63aaead5358bdec68ba550098879c8472d3a6b3cbfce0b5ec98fc08d",
+        "display_name": "Tim Franske",
+        "role": "editor",
+        "active": true
+    }
+]

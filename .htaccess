@@ -1,0 +1,8 @@
+# Standardmässig alles verbieten
+Require all denied
+
+Require ip 217.148.4.253/24
+Require ip 217.148.4.244
+Require ip 83.173.232.173
+Require ip 83.173.232.174
+

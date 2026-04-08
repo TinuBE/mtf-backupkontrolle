@@ -1,0 +1,3 @@
+# Direktzugriff auf alle Dateien in /data/ sperren
+Order deny,allow
+Deny from all

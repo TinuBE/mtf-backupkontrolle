@@ -1,0 +1,125 @@
+/* ═══════════════════════════════════════════ TABLE STYLES */
+
+/* ── Customer groups */
+.cust-group, .cg { margin-top: 20px; }
+.cust-group.hidden, .cg.hidden { display: none; }
+
+.cust-hdr, .cg-hdr {
+  display: flex; align-items: center; gap: 10px; padding: 9px 13px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 8%, transparent), transparent);
+  border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
+  margin-bottom: 3px; cursor: pointer; user-select: none;
+}
+.cust-hdr:hover, .cg-hdr:hover {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 14%, transparent), transparent);
+}
+.cust-name, .cg-name {
+  font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--text); flex: 1;
+}
+.cust-meta, .cg-meta { display: flex; gap: 6px; }
+.cm { padding: 2px 7px; border-radius: 3px; font-size: 10px; font-weight: 600; }
+.cm-ok    { background: var(--ok-bg);    color: var(--ok);    }
+.cm-warn  { background: var(--warn-bg);  color: var(--warn);  }
+.cm-error { background: var(--error-bg); color: var(--error); }
+
+.caret { color: var(--muted); font-size: 11px; transition: transform .2s; }
+.cust-group.collapsed .caret,
+.cg.collapsed .caret { transform: rotate(-90deg); }
+.cust-group.collapsed .jobs-wrap,
+.cg.collapsed .jobs-wrap { display: none; }
+
+/* Edit buttons (backend) */
+.edit-btns { display: flex; gap: 4px; opacity: 0; transition: opacity .15s; }
+.cust-hdr:hover .edit-btns { opacity: 1; }
+.eb {
+  font-size: 11px; background: var(--surface3); border: 1px solid var(--border2);
+  border-radius: 4px; color: var(--text2); cursor: pointer; padding: 2px 7px; transition: all .15s;
+}
+.eb:hover { color: var(--text); }
+.eb.danger { border-color: var(--error); color: var(--error); }
+.eb.danger:hover { background: var(--error-bg); }
+
+/* ── Jobs table */
+.jobs-tbl, .jtbl { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.jobs-tbl th, .jobs-tbl td,
+.jtbl th, .jtbl td {
+  border: 1px solid var(--border); text-align: center; vertical-align: middle; white-space: nowrap;
+}
+.jobs-tbl th, .jtbl th {
+  background: var(--surface2); font-family: var(--font-mono); font-size: 9px;
+  color: var(--muted); padding: 3px 1px; letter-spacing: .04em;
+  position: sticky; top: var(--header-h); z-index: 2;
+}
+.jobs-tbl th.wk, .jtbl th.wk {
+  background: var(--wk-bg); color: color-mix(in srgb, var(--muted) 50%, transparent);
+}
+.jobs-tbl th.td, .jtbl th.td {
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface2)); color: var(--accent);
+}
+.jobs-tbl th.name-th, .jtbl th.nth {
+  text-align: left; width: 300px; padding: 5px 10px; font-size: 10px;
+  letter-spacing: .06em; position: sticky; left: 0; z-index: 3;
+}
+.jobs-tbl td.name-td, .jtbl td.ntd {
+  text-align: left; width: 300px; padding: 4px 10px; font-size: 12px;
+  background: var(--surface2); color: var(--text2);
+  position: sticky; left: 0; z-index: 1;
+  overflow: hidden; text-overflow: ellipsis;
+  border-right: 1px solid var(--border2);
+}
+.jobs-tbl tr:hover .name-td,
+.jtbl tr:hover .ntd { color: var(--text); }
+.name-td .job-edit-btns { display: none; float: right; gap: 3px; }
+.jobs-tbl tr:hover .job-edit-btns { display: flex; }
+
+.dw { width: 26px; }
+
+/* Status cells */
+.c-ok,   .c-ok  { background: var(--ok-bg);    }
+.c-warn, .c-w   { background: var(--warn-bg);   }
+.c-err,  .c-e   { background: var(--error-bg);  }
+.c-cld         { background: var(--cloud-bg);  }
+.c-wk          { background: var(--wk-bg);     }
+td.td-hl, td.td-h { outline: 2px solid var(--accent); outline-offset: -2px; }
+td.kb-focus { outline: 2px solid var(--accent); outline-offset: -2px; z-index: 1; position: relative; }
+
+/* Status badges */
+.sb {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 18px; height: 18px; border-radius: 3px; font-size: 9px; font-weight: 700;
+  cursor: pointer; transition: all .1s;
+}
+.sb:hover { transform: scale(1.2); }
+.sb-ok  { background: color-mix(in srgb, var(--ok)    22%, transparent); color: var(--ok);    }
+.sb-w   { background: color-mix(in srgb, var(--warn)  22%, transparent); color: var(--warn);  }
+.sb-e   { background: color-mix(in srgb, var(--error) 22%, transparent); color: var(--error); }
+.sb-cld { background: color-mix(in srgb, var(--cloud) 22%, transparent); color: var(--cloud); }
+.sb-7   { color: var(--muted); opacity: .35; font-size: 8px; cursor: default; }
+.sb-q   { background: var(--surface3); color: var(--text); }
+.sb-em  { color: var(--muted); opacity: .2; cursor: pointer; }
+
+/* ── Table wrap */
+.table-wrap { overflow-x: auto; padding: 0 20px 48px; }
+
+/* ── Jump-today button */
+.jump-btn {
+  position: fixed; bottom: 20px; right: 20px; z-index: 90;
+  background: var(--accent2); color: #fff;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  padding: 8px 16px; border-radius: 8px; border: none; cursor: pointer;
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--accent2) 40%, transparent);
+  transition: all .15s;
+}
+.jump-btn:hover { background: var(--accent); transform: translateY(-1px); }
+
+/* ── Note indicator on cell */
+.has-note::after {
+  content: '';
+  position: absolute;
+  top: 2px; right: 2px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  pointer-events: none;
+}
+td.has-note { position: relative; }
